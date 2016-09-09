@@ -10,11 +10,8 @@
         $scope.messageStyle;
         $scope.checkIfTooMuch = function () {
             var list = $scope.foodList.trim();
-            var style = {};
-            style.color = colorMessageText(list);
-            style['border'] = '1px solid '+borderColorMessageText(list);
-          $scope.message = formGroupMessage(list);
-          $scope.messageStyle = style;
+            $scope.message = formGroupMessage(list);
+            $scope.messageStyle = messageTextStyle(list);
         };
     };
     function formGroupMessage(list) {
@@ -25,6 +22,12 @@
     }
     function borderColorMessageText(list) {
         return (list.length==0)?'red':'green';
+    }
+    function messageTextStyle(list) {
+        return {
+            color: colorMessageText(list),
+            border: '1px solid '+borderColorMessageText(list)
+        }
     }
 
 })();
