@@ -70,7 +70,7 @@
         })
         .then(function(result){
           foundItems = result.data.menu_items.filter(function (item) {
-            return item.description.indexOf(searchTerm) !== -1
+            return item.description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
           });
           return foundItems;
         });
