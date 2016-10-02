@@ -43,7 +43,10 @@
           nid.found = response;
           nid.nothingFound=checkForEmpty(nid.found);
         });
-      } else nid.nothingFound = true;
+      } else {
+        nid.nothingFound = true;
+        nid.found = [];
+      }
       };
 
       nid.removeItem = function(itemIndex){
