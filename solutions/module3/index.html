@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" ng-app="NarrowItDownApp">
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/table.css">
+    <link rel="stylesheet" href="styles/error.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+<body>
+   <div class="container" ng-controller="NarrowItDownController as nid">
+    <div class="container">
+
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
+
+    <div class="form-group">
+      <input ng-model = "nid.searchTerm" type="text" placeholder="search term" class="form-control">
+    </div>
+    <div class="form-group narrow-button">
+      <button ng-click = "nid.getItems()" class="btn btn-primary">Narrow It Down For Me!</button>
+    </div>
+    </div>
+    <div ng-if="nid.nothingFound" class="container error">Nothing found</div>
+
+    <!-- Bonus loader (see Bonus section of the assignment) -->
+    <items-loader-indicator></items-loader-indicator>
+
+    <!-- found-items should be implemented as a component -->
+    <!-- <found-items found-items="nid.foundItems" on-remove="nid.removeItem(index)"></found-items>-->
+    <found-items items="nid.found" on-remove='nid.removeItem(index)'></found-items>
+  </div>
+
+</body>
+</html>

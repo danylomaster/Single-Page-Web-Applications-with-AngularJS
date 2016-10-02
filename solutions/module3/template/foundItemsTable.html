@@ -1,0 +1,21 @@
+<div ng-if="list.showItems()" class="container">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="text-center">Name</th>
+                <th class="text-center">Short name</th>
+                <th class="text-center">Description</th>
+                <th class="text-center"></th>
+            </tr>
+        </thead>
+        <tbody ng-repeat='item in list.items'>
+            <tr>
+                <td>{{ item.name }}</td>
+                <td class="text-center">{{ item.short_name }}</td>
+                <td>{{ item.description }}</td>
+                <td><button  ng-click="list.onRemove({index: $index});" type="button" name="button" class="button btn-danger">Don't want this one!</button></td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
