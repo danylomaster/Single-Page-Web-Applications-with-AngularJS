@@ -38,7 +38,6 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     resolve: {
       items: ['$stateParams','MenuDataService',
               function ($stateParams, MenuDataService) {
-                console.log($stateParams);
                 return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
               }]
     },
